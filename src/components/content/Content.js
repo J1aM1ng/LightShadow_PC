@@ -70,7 +70,7 @@ const description = [
 const Content = () => {
   const [downloadNum, setDownloadNum] = useState('');
   useEffect(() => {
-    axios.get('http://app.cupof.beer:8083/download-count').then((res) => {
+    axios.get('https://app.cupof.beer:8083/download-count').then((res) => {
       // console.log(res);
       setDownloadNum(res.data.Count);
     }).catch((err) => {
@@ -79,7 +79,7 @@ const Content = () => {
   })
   const fetchData = () => {
     setTimeout(() => {
-      axios.get('http://app.cupof.beer:8083/download-count').then((res) => {
+      axios.get('https://app.cupof.beer:8083/download-count').then((res) => {
         // console.log(res);
         setDownloadNum(res.data.Count);
       }).catch((err) => {
@@ -128,7 +128,7 @@ const Content = () => {
                       color={'#f8f4f8'}
                       variant='h6'
                       underline='none'
-                      href='http://app.cupof.beer:8083/download'
+                      href='https://app.cupof.beer:8083/download'
                       onClick={() => fetchData()}
                     >
                       {'立即体验'}
