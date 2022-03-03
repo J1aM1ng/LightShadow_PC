@@ -75,8 +75,8 @@ const Content = () => {
             <Grid container spacing={1}>
               <Grid item xs={6}>
                 <Typography variant='h1'>起舞弄“轻影”</Typography>
-                <Typography variant='h3' sx={{ color: '#fd7901' }}>
-                  AI赋能的全新线上舞蹈解决方案
+                <Typography variant='h4' sx={{ color: '#fd7901' }}>
+                  ———— AI赋能的全新线上舞蹈解决方案
                 </Typography>
                 <Box mt={2}>
                   <Typography variant='h6'>轻影项目组 倾情打造</Typography>
@@ -92,7 +92,7 @@ const Content = () => {
                     component='span'
                     sx={{
                       display: 'inline-block',
-                      height: '50px',
+                      height: '40px',
                       lineHeight: '38px',
                       width: '176px',
                       textAlign: 'center',
