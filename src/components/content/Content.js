@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 // import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
@@ -64,9 +65,28 @@ const description = [
     content:
       '响应国家关于美育工作的要求 扎根一线 传递主旋律正能量'
   }
-]
+];
 
 const Content = () => {
+  const [downloadNum, setDownloadNum] = useState('');
+  useEffect(() => {
+    axios.get('http://app.cupof.beer:8083/download-count').then((res) => {
+      // console.log(res);
+      setDownloadNum(res.data.Count);
+    }).catch((err) => {
+      console.log(err);
+    });
+  })
+  const fetchData = () => {
+    setTimeout(() => {
+      axios.get('http://app.cupof.beer:8083/download-count').then((res) => {
+        // console.log(res);
+        setDownloadNum(res.data.Count);
+      }).catch((err) => {
+        console.log(err);
+      });
+    }, 1000)
+  };
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -109,6 +129,7 @@ const Content = () => {
                       variant='h6'
                       underline='none'
                       href='http://app.cupof.beer:8083/download'
+                      onClick={() => fetchData()}
                     >
                       {'立即体验'}
                     </Link>
@@ -128,19 +149,20 @@ const Content = () => {
                       }
                     }}
                   >
-                    <Link
+                    {/* <Link
                       color={'#000000'}
                       variant='h6'
                       underline='none'
                       href='#'
                       cursor='default'
-                    >
-                      {`999 次安装`}
-                      <FileDownloadOutlinedIcon sx={{ position: 'relative', left: '10px', top: '4px' }}/>
-                      {/* <PlayCircleOutlineIcon
-                        sx={{ position: 'relative', left: '10px', top: '4px' }}
-                      /> */}
-                    </Link>
+                    > */}
+                    <Typography
+                      color={'#000000'}
+                      variant='h6'>
+                      {`${downloadNum} 次安装`}
+                      <FileDownloadOutlinedIcon sx={{ position: 'relative', left: '10px', top: '4px' }} />
+                    </Typography>
+                    {/* </Link> */}
                   </Box>
                 </Box>
               </Grid>

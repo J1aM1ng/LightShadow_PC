@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
+// import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -120,7 +120,7 @@ export default () => {
 }
 
 export function BasicCard(props) {
-  const { avatar, name, introduce, github } = props
+  const { avatar, name, introduce} = props
   return (
     <Card sx={{ width: 275 }}>
       <CardContent>
